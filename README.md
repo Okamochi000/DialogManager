@@ -1,0 +1,2 @@
+# DialogManager
+ダイアログ管理
