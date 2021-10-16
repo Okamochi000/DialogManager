@@ -1,11 +1,11 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ƒ{ƒ^ƒ“¯•Êq
+/// ãƒœã‚¿ãƒ³è­˜åˆ¥å­
 /// </summary>
 public class ButtonIdentifier : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class ButtonIdentifier : MonoBehaviour
     private Action<string> callback_ = null;
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“¯•Êq‚Ì’Ç‰Á
+    /// ãƒœã‚¿ãƒ³è­˜åˆ¥å­ã®è¿½åŠ 
     /// </summary>
     /// <param name="button"></param>
     /// <param name="identifier"></param>
@@ -34,7 +34,7 @@ public class ButtonIdentifier : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“ƒR[ƒ‹ƒoƒbƒN
+    /// ãƒœã‚¿ãƒ³ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
     /// </summary>
     /// <param name="buttonAction"></param>
     /// <returns></returns>

@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ƒNƒŠƒbƒNƒuƒƒbƒJ[
+/// ã‚¯ãƒªãƒƒã‚¯ãƒ–ãƒ­ãƒƒã‚«ãƒ¼
 /// </summary>
 public class ClickBlocker : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class ClickBlocker : MonoBehaviour
             return;
         }
 
-        // ƒAƒ‹ƒtƒ@’l•ÏX
+        // ã‚¢ãƒ«ãƒ•ã‚¡å€¤å¤‰æ›´
         playTime_ += Time.deltaTime;
         playTime_ = Mathf.Min(playTime_, fadeTime);
         Color color = image.color;
@@ -30,7 +30,7 @@ public class ClickBlocker : MonoBehaviour
         else { color.a = (1.0f - (playTime_ / fadeTime)) * GetMaxAlphafloat(); }
         image.color = color;
 
-        // ‰æ‘œ”ñ•\¦
+        // ç”»åƒéè¡¨ç¤º
         if (playTime_ == fadeTime && !IsActive)
         {
             image.gameObject.SetActive(false);
@@ -38,7 +38,7 @@ public class ClickBlocker : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒAƒNƒeƒBƒuó‘ÔØ‘Ö
+    /// ã‚¢ã‚¯ãƒ†ã‚£ãƒ–çŠ¶æ…‹åˆ‡æ›¿
     /// </summary>
     /// <param name="active"></param>
     /// <param name="fade"></param>
@@ -63,7 +63,7 @@ public class ClickBlocker : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒAƒ‹ƒtƒ@’l
+    /// ã‚¢ãƒ«ãƒ•ã‚¡å€¤
     /// </summary>
     /// <returns></returns>
     private float GetMaxAlphafloat()

@@ -1,8 +1,8 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// ƒ_ƒCƒAƒƒO‚ÌƒI[ƒg¶¬
+/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚ªãƒ¼ãƒˆç”Ÿæˆ
 /// </summary>
 public class AutoDialogSample : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class AutoDialogSample : MonoBehaviour
         {
             if (playTime_ >= errorInterval)
             {
-                string message = String.Format("‚±‚ÌƒƒbƒZ[ƒW‚Í[{0}]‚É‘—M‚³‚ê‚Ü‚µ‚½\n\nƒGƒ‰[ƒ_ƒCƒAƒƒO‚Í‘¼‚Ìƒ_ƒCƒAƒƒO‚æ‚è—Dæ•\¦‚³‚ê‚Ü‚·\n\nƒGƒ‰[ƒ_ƒCƒAƒƒOˆÈŠO‚Ìƒ_ƒCƒAƒƒO‚Ííœ‚³‚ê‚Ü‚·", DateTime.Now);
+                string message = String.Format("ã“ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯[{0}]ã«é€ä¿¡ã•ã‚Œã¾ã—ãŸ\n\nã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã¯ä»–ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚ˆã‚Šå„ªå…ˆè¡¨ç¤ºã•ã‚Œã¾ã™\n\nã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä»¥å¤–ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã¯å‰Šé™¤ã•ã‚Œã¾ã™", DateTime.Now);
                 ErrorDialogInfo info = new ErrorDialogInfo(ErrorDialogInfo.ErrorType.Unknow);
                 info.Message = message;
                 DialogManager.Instance.CreateErrorDialog(info);
@@ -30,8 +30,8 @@ public class AutoDialogSample : MonoBehaviour
             }
             else
             {
-                string message = String.Format("‚±‚ÌƒƒbƒZ[ƒW‚Í[{0}]‚É‘—M‚³‚ê‚Ü‚µ‚½\n\nƒƒbƒZ[ƒW‚ÍƒLƒ…[‚É—­‚Ü‚è‚Ü‚·", DateTime.Now);
-                DialogManager.Instance.CreateGeneralDialogOkOnly("ƒeƒXƒg", message);
+                string message = String.Format("ã“ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯[{0}]ã«é€ä¿¡ã•ã‚Œã¾ã—ãŸ\n\nãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ã‚­ãƒ¥ãƒ¼ã«æºœã¾ã‚Šã¾ã™", DateTime.Now);
+                DialogManager.Instance.CreateGeneralDialogOkOnly("ãƒ†ã‚¹ãƒˆ", message);
             }
         }
     }

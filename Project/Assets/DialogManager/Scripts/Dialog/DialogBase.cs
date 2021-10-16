@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// ƒ_ƒCƒAƒƒOƒx[ƒX
+/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ™ãƒ¼ã‚¹
 /// </summary>
 public class DialogBase : MonoBehaviour
 {
     /// <summary>
-    /// ŠJ•Âó‘Ô
+    /// é–‹é–‰çŠ¶æ…‹
     /// </summary>
     public enum OpenAndClosedState
     {
-        None,       // ŠJ‚¢‚Ä‚¢‚È‚¢
-        Open,       // ŠJ‚¢‚Ä‚¢‚é“r’†
-        Playing,    // ŠJ‚«I‚¦‚Ä‚¢‚é
-        Close,      // •Â‚¶‚Ä‚¢‚é“r’†
-        Destory     // •Â‚¶I‚¦‚½
+        None,       // é–‹ã„ã¦ã„ãªã„
+        Open,       // é–‹ã„ã¦ã„ã‚‹é€”ä¸­
+        Playing,    // é–‹ãçµ‚ãˆã¦ã„ã‚‹
+        Close,      // é–‰ã˜ã¦ã„ã‚‹é€”ä¸­
+        Destory     // é–‰ã˜çµ‚ãˆãŸ
     }
 
     public OpenAndClosedState State { get; private set; } = OpenAndClosedState.None;
@@ -24,7 +24,7 @@ public class DialogBase : MonoBehaviour
     private bool isCloseAnim = false;
 
     /// <summary>
-    /// ŠJ‚­
+    /// é–‹ã
     /// </summary>
     public void Open()
     {
@@ -37,30 +37,30 @@ public class DialogBase : MonoBehaviour
     }
 
     /// <summary>
-    /// •Â‚¶‚é
+    /// é–‰ã˜ã‚‹
     /// </summary>
     public void Close()
     {
         if (State == OpenAndClosedState.None)
         {
-            // ŠJ‚©‚ê‚Ä‚¢‚È‚¢ê‡‚Í‚»‚Ì‚Ü‚Ü•Â‚¶‚é
+            // é–‹ã‹ã‚Œã¦ã„ãªã„å ´åˆã¯ãã®ã¾ã¾é–‰ã˜ã‚‹
             State = OpenAndClosedState.Destory;
             this.gameObject.SetActive(false);
         }
         else if (State == OpenAndClosedState.Open || State == OpenAndClosedState.Playing)
         {
-            // •Â‚¶‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğŠJn‚·‚é
+            // é–‰ã˜ã‚‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã™ã‚‹
             StartCoroutine(WaitCloseAnimation());
         }
     }
 
     /// <summary>
-    /// •Â‚¶‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚½‚Æ‚«‚ÌƒR[ƒ‹ƒoƒbƒN
+    /// é–‰ã˜ã‚‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ãŸã¨ãã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
     /// </summary>
     protected virtual void OnClosed() { }
 
     /// <summary>
-    /// ŠJ‚­ƒAƒjƒ[ƒVƒ‡ƒ“‘Ò‚¿
+    /// é–‹ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å¾…ã¡
     /// </summary>
     /// <returns></returns>
     private IEnumerator WaitOpenAnimation()
@@ -82,7 +82,7 @@ public class DialogBase : MonoBehaviour
     }
 
     /// <summary>
-    /// •Â‚¶‚éƒAƒjƒ[ƒVƒ‡ƒ“I—¹‘Ò‚¿
+    /// é–‰ã˜ã‚‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†å¾…ã¡
     /// </summary>
     /// <returns></returns>
     private IEnumerator WaitCloseAnimation()
@@ -91,7 +91,7 @@ public class DialogBase : MonoBehaviour
 
         isCloseAnim = true;
 
-        // ŠJ‚©‚ê‚é‚Ü‚Å‘Ò‚Â
+        // é–‹ã‹ã‚Œã‚‹ã¾ã§å¾…ã¤
         while (State != OpenAndClosedState.Playing)
         {
             yield return null;
@@ -104,7 +104,7 @@ public class DialogBase : MonoBehaviour
             animator.SetBool("IsOpen", false);
             AnimatorStateInfo animInfo = animator.GetCurrentAnimatorStateInfo(0);
 
-            // ƒAƒjƒ[ƒVƒ‡ƒ“I—¹‘Ò‚¿
+            // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†å¾…ã¡
             while (animInfo.normalizedTime < 1.0f)
             {
                 yield return null;
@@ -116,7 +116,7 @@ public class DialogBase : MonoBehaviour
         State = OpenAndClosedState.Destory;
         this.gameObject.SetActive(false);
 
-        // •Â‚¶‚ç‚ê‚½‚ÌƒR[ƒ‹ƒoƒbƒN
+        // é–‰ã˜ã‚‰ã‚ŒãŸæ™‚ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
         OnClosed();
     }
 }

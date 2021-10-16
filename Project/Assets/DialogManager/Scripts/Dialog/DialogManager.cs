@@ -1,13 +1,13 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒ_ƒCƒAƒƒOŠÇ—
+/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç®¡ç†
 /// </summary>
 public class DialogManager : MonoBehaviourSingleton<DialogManager>
 {
-    // ƒ_ƒCƒAƒƒO‚Ìí—Ş
+    // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ç¨®é¡
     public enum DialogType
     {
         GeneralDialog
@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     // Update is called once per frame
     void Update()
     {
-        // ƒ_ƒCƒAƒƒO‚ª•Â‚¶‚ç‚ê‚Ä‚¢‚È‚¢ê‡‚Í–³‹
+        // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒé–‰ã˜ã‚‰ã‚Œã¦ã„ãªã„å ´åˆã¯ç„¡è¦–
         if (activeDialog_ != null)
         {
             if (activeDialog_.State == DialogBase.OpenAndClosedState.Destory)
@@ -36,22 +36,22 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
             }
         }
 
-        // Ÿ‚Ìƒ_ƒCƒAƒƒO‚ğİ’è‚·‚é
+        // æ¬¡ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¨­å®šã™ã‚‹
         activeDialog_ = GetNextDialog();
         if (activeDialog_ != null)
         {
-            // Ÿ‚Ìƒ_ƒCƒAƒƒO‚ª‚ ‚éê‡‚Í•\¦
+            // æ¬¡ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒã‚ã‚‹å ´åˆã¯è¡¨ç¤º
             activeDialog_.Open();
         }
         else
         {
-            // ƒ_ƒCƒAƒƒO‚ª‚È‚¢ê‡‚ÍƒtƒF[ƒh‚ğ”ñ•\¦
+            // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒãªã„å ´åˆã¯ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’éè¡¨ç¤º
             if (clickBlocker != null) { clickBlocker.SetActive(false); }
         }
     }
 
     /// <summary>
-    /// ”Ä—pƒ_ƒCƒAƒƒO¶¬
+    /// æ±ç”¨ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”Ÿæˆ
     /// </summary>
     /// <returns></returns>
     public GeneralDialog CreateGeneralDialog(string title, string message, Action okCallback = null, Action cancelCallback = null)
@@ -66,7 +66,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ”Ä—pƒ_ƒCƒAƒƒO¶¬
+    /// æ±ç”¨ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”Ÿæˆ
     /// </summary>
     /// <returns></returns>
     public GeneralDialog CreateGeneralDialogOkOnly(string title, string message, Action okCallback = null)
@@ -78,19 +78,19 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ƒGƒ‰[ƒ_ƒCƒAƒƒO¶¬
+    /// ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”Ÿæˆ
     /// </summary>
     /// <returns></returns>
     public GeneralDialog CreateErrorDialog(ErrorDialogInfo info)
     {
-        // –¢w’è‚Ìê‡‚Í•s–¾‚ÈƒGƒ‰[
+        // æœªæŒ‡å®šã®å ´åˆã¯ä¸æ˜ãªã‚¨ãƒ©ãƒ¼
         if (info == null) { info = new ErrorDialogInfo(ErrorDialogInfo.ErrorType.Unknow); }
 
-        // Šù‘¶‚Ìƒ_ƒCƒAƒƒO‚ğ‚·‚×‚Ä”jŠü
+        // æ—¢å­˜ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ã™ã¹ã¦ç ´æ£„
         ClearQueue();
         CloseActiveDialog();
 
-        // ƒGƒ‰[ƒ_ƒCƒAƒƒO‚Ì¶¬
+        // ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ç”Ÿæˆ
         errorDialogInfo_ = info;
         GeneralDialog generalDialog = CreateGeneralDialogOkOnly(info.Title, info.Message, OnErrorDialogCallback);
 
@@ -98,13 +98,13 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ƒ_ƒCƒAƒƒO¶¬
+    /// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”Ÿæˆ
     /// </summary>
     /// <param name="dialogType"></param>
     /// <returns></returns>
     public DialogBase CreateDialog(DialogType dialogType)
     {
-        // ƒpƒXæ“¾
+        // ãƒ‘ã‚¹å–å¾—
         string resourcePath = "Dialogs/";
         switch (dialogType)
         {
@@ -112,17 +112,17 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
             default: break;
         }
 
-        // ƒŠƒ\[ƒX“Ç‚İ‚İ
+        // ãƒªã‚½ãƒ¼ã‚¹èª­ã¿è¾¼ã¿
         GameObject resource = Resources.Load<GameObject>(resourcePath);
         if (resource == null) { return null; }
 
-        // ƒ_ƒCƒAƒƒO¶¬
+        // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”Ÿæˆ
         GameObject dialogObj = GameObject.Instantiate(resource, this.transform);
         DialogBase dialogBase = dialogObj.GetComponent<DialogBase>();
 
         if (activeDialog_ == null)
         {
-            // ƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ä‚¢‚È‚¢ê‡
+            // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ãªã„å ´åˆ
             activeDialog_ = dialogBase;
             dialogObj.SetActive(true);
             dialogBase.Open();
@@ -130,7 +130,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
         }
         else
         {
-            // Šù‚É•\¦‚³‚ê‚Ä‚¢‚éƒ_ƒCƒAƒƒO‚ª‚ ‚éê‡
+            // æ—¢ã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒã‚ã‚‹å ´åˆ
             dialogObj.SetActive(false);
             dialogQueue_.Enqueue(dialogBase);
         }
@@ -139,7 +139,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ƒAƒNƒeƒBƒuó‘Ô‚Ìƒ_ƒCƒAƒƒO‚ğ•Â‚¶‚é
+    /// ã‚¢ã‚¯ãƒ†ã‚£ãƒ–çŠ¶æ…‹ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‰ã˜ã‚‹
     /// </summary>
     public void CloseActiveDialog()
     {
@@ -150,7 +150,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ƒLƒ…[‚É—­‚Ü‚Á‚Ä‚¢‚éƒ_ƒCƒAƒƒO‚ğíœ‚·‚é
+    /// ã‚­ãƒ¥ãƒ¼ã«æºœã¾ã£ã¦ã„ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰Šé™¤ã™ã‚‹
     /// </summary>
     public void ClearQueue()
     {
@@ -166,7 +166,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// ƒGƒ‰[ƒ_ƒCƒAƒƒO‚ÌƒR[ƒ‹ƒoƒbƒN
+    /// ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
     /// </summary>
     private void OnErrorDialogCallback()
     {
@@ -183,7 +183,7 @@ public class DialogManager : MonoBehaviourSingleton<DialogManager>
     }
 
     /// <summary>
-    /// Ÿ‚Ìƒ_ƒCƒAƒƒO‚ğæ“¾‚·‚é
+    /// æ¬¡ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å–å¾—ã™ã‚‹
     /// </summary>
     /// <returns></returns>
     private DialogBase GetNextDialog()

@@ -1,9 +1,9 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ”Ä—pƒ_ƒCƒAƒƒO
+/// æ±ç”¨ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 /// </summary>
 public class GeneralDialog : DialogBase
 {
@@ -24,7 +24,7 @@ public class GeneralDialog : DialogBase
     // Start is called before the first frame update
     void Start()
     {
-        // ƒ{ƒ^ƒ“İ’è
+        // ãƒœã‚¿ãƒ³è¨­å®š
         foreach (ButtonType buttonType in Enum.GetValues(typeof(ButtonType)))
         {
             string identifier = ((int)buttonType).ToString();
@@ -35,7 +35,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ^ƒCƒgƒ‹‚ğİ’è‚·‚é
+    /// ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¨­å®šã™ã‚‹
     /// </summary>
     /// <param name="title"></param>
     public void SetTitle(string title)
@@ -44,7 +44,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒƒbƒZ[ƒW‚ğİ’è‚·‚é
+    /// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹
     /// </summary>
     /// <param name="message"></param>
     public void SetMessage(string message)
@@ -53,7 +53,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚Ì–¼‘O‚ğİ’è‚·‚é
+    /// ãƒœã‚¿ãƒ³ã®åå‰ã‚’è¨­å®šã™ã‚‹
     /// </summary>
     /// <param name="buttonType"></param>
     /// <param name="name"></param>
@@ -65,7 +65,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚ÌƒR[ƒ‹ƒoƒbƒN‚ğİ’è‚·‚é
+    /// ãƒœã‚¿ãƒ³ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’è¨­å®šã™ã‚‹
     /// </summary>
     /// <param name="buttonType"></param>
     /// <param name="callback"></param>
@@ -75,7 +75,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚Ì•\¦ó‘Ô‚ğİ’è‚·‚é
+    /// ãƒœã‚¿ãƒ³ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’è¨­å®šã™ã‚‹
     /// </summary>
     /// <param name="buttonType"></param>
     /// <param name="active"></param>
@@ -86,13 +86,13 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// •Â‚¶‚ç‚ê‚½‚ÌƒR[ƒ‹ƒoƒbƒN
+    /// é–‰ã˜ã‚‰ã‚ŒãŸæ™‚ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
     /// </summary>
     protected override void OnClosed()
     {
         base.OnClosed();
 
-        // ƒ{ƒ^ƒ“‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚çƒR[ƒ‹ƒoƒbƒN‚ğŒÄ‚Ño‚·
+        // ãƒœã‚¿ãƒ³ãŒé¸æŠã•ã‚Œã¦ã„ãŸã‚‰ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å‘¼ã³å‡ºã™
         if (selectedCallback_ != null)
         {
             selectedCallback_();
@@ -100,7 +100,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚ğæ“¾‚·‚é
+    /// ãƒœã‚¿ãƒ³ã‚’å–å¾—ã™ã‚‹
     /// </summary>
     /// <param name="buttonType"></param>
     /// <returns></returns>
@@ -117,7 +117,7 @@ public class GeneralDialog : DialogBase
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“ƒR[ƒ‹ƒoƒbƒN
+    /// ãƒœã‚¿ãƒ³ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
     /// </summary>
     /// <param name="identifier"></param>
     private void OnButtonCallback(string identifier)
@@ -126,17 +126,17 @@ public class GeneralDialog : DialogBase
 
         int typeNum = 0;
 
-        // –³Œø‚È’l‚Ìê‡‚ÍƒLƒƒƒ“ƒZƒ‹ˆµ‚¢‚É‚·‚é
+        // ç„¡åŠ¹ãªå€¤ã®å ´åˆã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ‰±ã„ã«ã™ã‚‹
         if (!int.TryParse(identifier, out typeNum)) { typeNum = (int)ButtonType.Cancel; }
         else if (typeNum < 0 || typeNum >= Enum.GetValues(typeof(ButtonType)).Length) { typeNum = (int)ButtonType.Cancel; }
         selectedCallback_ = buttonCallbacks_[typeNum];
 
-        // •Â‚¶‚é
+        // é–‰ã˜ã‚‹
         Close();
     }
 
     /// <summary>
-    /// ƒŒƒCƒAƒEƒgXV
+    /// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆæ›´æ–°
     /// </summary>
     private void UpdateLayout(Transform target)
     {

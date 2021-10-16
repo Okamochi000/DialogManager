@@ -1,17 +1,17 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒGƒ‰[î•ñ
+/// ã‚¨ãƒ©ãƒ¼æƒ…å ±
 /// </summary>
 public class ErrorDialogInfo
 {
     public enum ErrorType
     {
-        Unknow,     // •s–¾‚ÈƒGƒ‰[
-        Network,    // ƒlƒbƒgƒ[ƒNƒGƒ‰[
+        Unknow,     // ä¸æ˜ãªã‚¨ãƒ©ãƒ¼
+        Network,    // ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚¨ãƒ©ãƒ¼
     }
 
     public string Title { get; set; } = "";
@@ -20,20 +20,20 @@ public class ErrorDialogInfo
 
     public ErrorDialogInfo(ErrorType errorType, Action callback = null)
     {
-        // ƒGƒ‰[î•ñİ’è
+        // ã‚¨ãƒ©ãƒ¼æƒ…å ±è¨­å®š
         switch (errorType)
         {
             case ErrorType.Unknow:
-                Title = "•s–¾‚ÈƒGƒ‰[";
-                Message = "•s–¾‚ÈƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B";
+                Title = "ä¸æ˜ãªã‚¨ãƒ©ãƒ¼";
+                Message = "ä¸æ˜ãªã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚";
                 break;
             case ErrorType.Network:
-                Title = "ƒlƒbƒgƒ[ƒNƒGƒ‰[";
-                Message = "ƒlƒbƒgƒ[ƒNƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B";
+                Title = "ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚¨ãƒ©ãƒ¼";
+                Message = "ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚";
                 break;
         }
 
-        // ƒR[ƒ‹ƒoƒbƒNİ’è(–¢İ’è‚Ìê‡‚ÍƒfƒtƒHƒ‹ƒg‚ÌƒR[ƒ‹ƒoƒbƒN‚ğİ’è)
+        // ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯è¨­å®š(æœªè¨­å®šã®å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’è¨­å®š)
         Callback = callback;
         if (Callback == null)
         {
